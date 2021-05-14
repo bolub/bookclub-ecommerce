@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav
-      class=" lg:px-20 md:px-20 text-body-2 w-full px-6 py-1 flex justify-between items-center"
+      class=" lg:px-10 md:px-10 text-body-2 w-full px-6 py-1 flex justify-between items-center"
       :class="{
         'fixed shadow top-0 w-full z-50 bg-white': height > 35,
         'bg-blue-dark z-50 text-white': height < 35,

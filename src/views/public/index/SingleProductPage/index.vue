@@ -19,8 +19,8 @@
 
       <!-- shOWS PRODUCT description and other shit -->
       <div class="overflow-y-auto w-3/5 h-full p-10">
-        <ColorChooser v-if="product.color" :colors="product.color.split(',')" />
-        <SizeChooser v-if="product.size" :sizes="product.size.split(',')" />
+        <ColorChooser v-if="product.color" :colors="colors.split(',')" />
+        <SizeChooser v-if="product.size" :sizes="sizes.split(',')" />
 
         <div>
           {{ product.description }}
@@ -54,6 +54,9 @@ export default {
       loading: false,
       product: {},
       cart: [],
+      localStorageCart: [],
+      colors: "",
+      sizes: "",
       // colorChosen: null,
       // sizeChosen: null,
     };
@@ -70,8 +73,8 @@ export default {
     activateButton() {
       // if(response) return;
       return (
-        (this.product.color.split(",").length > 0 && !this.getColorChosen) ||
-        (this.product.color.split(",").length > 0 && !this.getSizeChosen)
+        (this.colors.split(",").length > 0 && !this.getColorChosen) ||
+        (this.sizes.split(",").length > 0 && !this.getSizeChosen)
       );
     },
   },
@@ -79,6 +82,7 @@ export default {
   mounted() {
     this.fetchData();
     this.cart = this.$store.state.cart.products;
+    this.localStorageCart = JSON.parse(localStorage.getItem("products")) || [];
   },
 
   methods: {
@@ -91,10 +95,46 @@ export default {
       );
       this.loading = false;
       this.product = response.product;
+      this.colors = response.product.color;
+      this.sizes = response.product.size;
     },
 
     addToCartHandler(product) {
-      this.updateCart(product);
+      const productAlreadyInCart = this.localStorageCart.filter((sc) => {
+        sc.id === product.id;
+      });
+
+      let productData = {
+        ...product,
+        colorChosen: this.getColorChosen,
+        sizeChosen: this.getSizeChosen,
+        quantity: 1,
+      };
+      let cartDataToUse = this.localStorageCart;
+
+      if (productAlreadyInCart.length > 0) {
+        productData = {
+          ...product,
+          colorChosen: this.getColorChosen,
+          sizeChosen: this.getSizeChosen,
+          quantity: productAlreadyInCart[0].quantity + 1,
+        };
+
+        cartDataToUse = this.localStorageCart.filter((sc) => {
+          sc.id !== product.id;
+        });
+      }
+
+      const allProducts = [...cartDataToUse, productData];
+      localStorage.setItem("products", JSON.stringify(allProducts));
+      this.$message({
+        message: "Added to Cart",
+        type: "success",
+      });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     },
   },
 };
