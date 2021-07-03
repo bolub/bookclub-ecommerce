@@ -39,7 +39,6 @@
       <!-- contains content -->
       <div v-else class="w-4/5 px-10 pt-10 pb-40">
         <div class="grid grid-cols-3 gap-4">
-          <!-- Image component -->
           <SingleProduct
             v-for="product in products"
             :key="product.name"
