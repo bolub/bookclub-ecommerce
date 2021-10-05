@@ -51,9 +51,9 @@
 </template>
 
 <script>
-import axios from "axios";
-import SingleProduct from "./SingleProduct.vue";
-import Loader from "../../../components/ui/Loader.vue";
+import axios from 'axios';
+import SingleProduct from './SingleProduct.vue';
+import Loader from '../../../components/ui/Loader.vue';
 export default {
   data() {
     return {
@@ -61,13 +61,13 @@ export default {
       post: null,
       error: null,
       categories: [
-        "Electronics",
-        "Joggers",
-        "Sneakers",
-        "Jewelries",
-        "Computer",
+        'Electronics',
+        'Joggers',
+        'Sneakers',
+        'Jewelries',
+        'Computer',
       ],
-      trends: ["Electronics", "Joggers", "Sneakers", "Jewelries", "Computer"],
+      trends: ['Electronics', 'Joggers', 'Sneakers', 'Jewelries', 'Computer'],
       products: [],
     };
   },
@@ -85,7 +85,7 @@ export default {
     async fetchData() {
       this.loading = true;
       const response = await axios.get(
-        "http://sandbox.bookclubwithlove.org/api/products"
+        'https://sandbox.bookclubwithlove.org/api/products'
       );
       this.loading = false;
       this.products = response.products.data;

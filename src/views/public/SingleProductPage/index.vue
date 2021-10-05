@@ -40,13 +40,13 @@
 </template>
 
 <script>
-import axios from "axios";
-import ColorChooser from "./ColorChooser.vue";
-import SizeChooser from "./SizeChooser.vue";
-import Loader from "../../../../components/ui/Loader.vue";
-import { createNamespacedHelpers } from "vuex";
+import axios from 'axios';
+import ColorChooser from './ColorChooser.vue';
+import SizeChooser from './SizeChooser.vue';
+import Loader from '../../../components/ui/Loader.vue';
+import { createNamespacedHelpers } from 'vuex';
 
-const { mapMutations, mapGetters } = createNamespacedHelpers("cart");
+const { mapMutations, mapGetters } = createNamespacedHelpers('cart');
 
 export default {
   data() {
@@ -55,8 +55,8 @@ export default {
       product: {},
       cart: [],
       localStorageCart: [],
-      colors: "",
-      sizes: "",
+      colors: '',
+      sizes: '',
       // colorChosen: null,
       // sizeChosen: null,
     };
@@ -69,12 +69,12 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getCart", "getColorChosen", "getSizeChosen"]),
+    ...mapGetters(['getCart', 'getColorChosen', 'getSizeChosen']),
     activateButton() {
       // if(response) return;
       return (
-        (this.colors.split(",").length > 0 && !this.getColorChosen) ||
-        (this.sizes.split(",").length > 0 && !this.getSizeChosen)
+        (this.colors.split(',').length > 0 && !this.getColorChosen) ||
+        (this.sizes.split(',').length > 0 && !this.getSizeChosen)
       );
     },
   },
@@ -82,16 +82,16 @@ export default {
   mounted() {
     this.fetchData();
     this.cart = this.$store.state.cart.products;
-    this.localStorageCart = JSON.parse(localStorage.getItem("products")) || [];
+    this.localStorageCart = JSON.parse(localStorage.getItem('products')) || [];
   },
 
   methods: {
-    ...mapMutations(["updateCart"]),
+    ...mapMutations(['updateCart']),
 
     async fetchData() {
       this.loading = true;
       const response = await axios.get(
-        `http://sandbox.bookclubwithlove.org/api/product/${this.$route.params.id}`
+        `https://sandbox.bookclubwithlove.org/api/product/${this.$route.params.id}`
       );
       this.loading = false;
       this.product = response.product;
@@ -126,10 +126,10 @@ export default {
       }
 
       const allProducts = [...cartDataToUse, productData];
-      localStorage.setItem("products", JSON.stringify(allProducts));
+      localStorage.setItem('products', JSON.stringify(allProducts));
       this.$message({
-        message: "Added to Cart",
-        type: "success",
+        message: 'Added to Cart',
+        type: 'success',
       });
 
       setTimeout(() => {

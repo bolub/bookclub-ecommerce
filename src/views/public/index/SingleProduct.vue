@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="'/' + product.slug"
+    :to="'/product/' + product.slug"
     style="background:#f2f2f2; height:300px"
     class="pt-6 pb-4 px-4 font-14 flex flex-col cursor-pointer"
   >
