@@ -1,4 +1,14 @@
 module.exports = {
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+        "./views/**/*.vue",
+        "./components/**/*.vue",
+        "./plugins/**/*.vue",
+        "./static/**/*.vue",
+        "./store/**/*.vue",
+    ]
+  },
   theme: {
     colors: {
       success: "#00D67D",
