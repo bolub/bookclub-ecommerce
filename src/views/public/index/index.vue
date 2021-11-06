@@ -2,8 +2,7 @@
   <div class="home relative">
     <div class="w-full flex">
       <!-- Contains filters -->
-      
-
+    
       <Loader v-if="loading" loadingText="Getting Products..." />
 
       <!-- contains content -->

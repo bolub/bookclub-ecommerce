@@ -91,7 +91,7 @@ export default {
     async fetchData() {
       this.loading = true;
       const response = await axios.get(
-        `http://sandbox.bookclubwithlove.org/api/product/${this.$route.params.id}`
+        `https://sandbox.bookclubwithlove.org/api/product/${this.$route.params.id}`
       );
       this.loading = false;
       this.product = response.product;
