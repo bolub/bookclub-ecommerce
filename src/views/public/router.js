@@ -1,11 +1,19 @@
 const publicRoutes = [
   {
-    path: "/",
-    component: () => import("./index"),
+    path: '/',
+    component: () => import('./index'),
   },
   {
-    path: "/:id",
-    component: () => import("./index/SingleProductPage/index"),
+    path: '/product/:id',
+    component: () => import('./SingleProductPage'),
+  },
+  {
+    path: '/checkout',
+    component: () => import('./Checkout'),
+  },
+  {
+    path: '/cart',
+    component: () => import('./Cart'),
   },
 ];
 

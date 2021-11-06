@@ -68,7 +68,8 @@
       </div>
 
       <button
-        class="bg-black mt-auto mb-5 w-full text-white mt-5 px-8 py-4 rounded-md"
+        @click="moveToCheckout"
+        class="bg-black mt-auto mb-5 w-full text-white px-8 py-4 rounded-md"
       >
         Proceed to Checkout
       </button>
@@ -85,7 +86,7 @@ export default {
   },
 
   mounted() {
-    this.cartInfo = JSON.parse(localStorage.getItem("products"));
+    this.cartInfo = JSON.parse(localStorage.getItem('products'));
   },
 
   methods: {
@@ -108,7 +109,7 @@ export default {
       const newProductList = [newProduct, ...filteredCartInfo];
 
       this.cartInfo = newProductList;
-      localStorage.setItem("products", JSON.stringify(newProductList));
+      localStorage.setItem('products', JSON.stringify(newProductList));
     },
 
     decreaseProductQuantity(product) {
@@ -129,7 +130,7 @@ export default {
       // add new product to list
       const newProductList = [newProduct, ...filteredCartInfo];
 
-      localStorage.setItem("products", JSON.stringify(newProductList));
+      localStorage.setItem('products', JSON.stringify(newProductList));
       this.cartInfo = newProductList;
     },
 
@@ -142,8 +143,12 @@ export default {
         return cp.id !== product.id;
       });
 
-      localStorage.setItem("products", JSON.stringify(filteredCartInfo));
+      localStorage.setItem('products', JSON.stringify(filteredCartInfo));
       this.cartInfo = filteredCartInfo;
+    },
+
+    moveToCheckout() {
+      window.location.href = '/checkout';
     },
   },
 };
