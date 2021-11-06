@@ -86,7 +86,7 @@ export default {
     async fetchData() {
       this.loading = true;
       const response = await axios.get(
-        "http://sandbox.bookclubwithlove.org/api/products"
+        "https://sandbox.bookclubwithlove.org/api/products"
       );
       this.loading = false;
       this.products = response.products.data;
