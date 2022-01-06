@@ -1,10 +1,10 @@
 <template>
     <div>
-        <nav class=" lg:px-20 md:px-10 text-body-2 w-full px-6 py-1 flex justify-between items-center" :class="{'fixed shadow text-dark top-0 w-full z-50 bg-white': height > 35,'bg-transparent z-50 text-white':height < 35}">
+        <nav class=" lg:px-20 md:px-10 text-body-2 w-full px-6 py-1 flex justify-between items-center" :class="{'fixed shadow text-dark top-0 w-full z-50 bg-white': height > 35,'bg-deep-blue z-50 text-white':height < 35}">
             <div class="flex items-center lg:w-8/12 md:w-4/12">
                 <div class="font mt-3 w-2/12">
                     <a href="https://sandbox.bookclubwithlove.org" class="flex items-center pb-1">
-                        <img src="/img/logo.png"  alt="logo" class="object-fit" style="max-width: 80px">
+                        <img src="https://sandbox.bookclubwithlove.org/img/logo.png"  alt="logo" class="object-fit" style="max-width: 80px">
                     </a>
                 </div>
                 <ul class="lg:flex hidden font flex-3 items-center ">
