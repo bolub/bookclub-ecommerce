@@ -273,4 +273,7 @@
 .bg-deep-blue{
   background-color: #1E293B;
 }
+.text-dark{
+  color:#000;
+}
 </style>
