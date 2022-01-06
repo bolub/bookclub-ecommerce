@@ -229,7 +229,7 @@
 </template>
 
 <script>
-import MarqueeText from 'vue-marquee-text-component'
+// import MarqueeText from 'vue-marquee-text-component'
     export default {
         data() {
             return {
@@ -240,9 +240,9 @@ import MarqueeText from 'vue-marquee-text-component'
                 showNav:false
             };
         },
-        components: {
-            MarqueeText
-        },
+        // components: {
+        //     MarqueeText
+        // },
         mounted(){
             window.addEventListener('scroll',this.updateScroll);
         },
