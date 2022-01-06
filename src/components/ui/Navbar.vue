@@ -270,4 +270,7 @@
     visibility: visible;
     opacity: 1;
 }
+.bg-deep-blue{
+  background-color: #1E293B;
+}
 </style>
