@@ -12,7 +12,9 @@ let url ='';
 if(process.env.NODE_ENV === 'development'){
     url = 'https://bookclub.test/api/v1/manager/';
 } else {
-    url = 'https://bookclubwithlove.org/api/v1/manager/';
+    // url = 'https://bookclubwithlove.org/api/v1/manager/';
+    url = 'https://bookclubwithlove.herokuapp.com/api/v1/manager/';
+
 }
 
 
